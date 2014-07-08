@@ -166,9 +166,11 @@ a:focus {
 */
 
 pre {
-	font-size: 0.6em;
+	font-size: 1em;
 	display: block;
 	overflow: auto;
+	padding: 10px !important;
+	margin: 10px;
 }
 
 .step {

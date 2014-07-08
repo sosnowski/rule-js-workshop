@@ -155,9 +155,8 @@
     -->
     <div id="intro" class="step" data-x="0" data-y="0">
         <h1>Fast track<br /> to web applications</h1>
-		<h4>JavaScript - part 1</h4>
-		<p>
-			<img src="js.png" width="100%"/>
+		<p style="text-align: center;">
+			<img src="js.png" width="200"/>
 		</p>
     </div>
 	
@@ -169,13 +168,13 @@
 	<div class="step" data-x="0" data-y="2000" data-scale="1">
 		<h2>Run in te browser...</h2>
 		
-		browser logos
+		<img src="all-browsers.png" width="600"/>
 	</div>
 	
 	<div class="step" data-x="0" data-y="2100" data-z="-100">
 		<h2>And much more</h2>
 		
-		other envs logos
+		<img src="nodejs.png"/>
 	</div>
 	
 	<div class="step" data-x="0" data-y="3000" data-z="0">
@@ -407,6 +406,7 @@ var sumAll = function () {
 	for (var i = 0; i < arguments.length; i++) {
 		sum += arguments[i];
 	}
+	return sum;
 };
 		</pre>
 
@@ -430,21 +430,21 @@ function test() {
 	console.log(c);
 	
 	function func() {
-	
+		console.log('quak');
 	}
 }
 		
 		</pre>
 	</div>
 		
-		<div class="step" data-x="3000" data-y="6000">
+	<div class="step" data-x="3000" data-y="6000">
 		<h2>Functional scope</h2>
 		
 		<pre class="prettyprint">
 function test() {
 	var a, b, c;
 	function func () {
-	
+		console.log('quak');
 	}
 	a = 1;
 	b = 1;
@@ -460,250 +460,299 @@ function test() {
 		
 		</pre>
 	</div>
-	
-	
-	<div id="html" class="step" data-x="-1200" data-y="1300" data-z="-3000" data-rotate="360">
-		<p style="text-align: center;"><img src="html.png"/></p>
-	</div>
-	<div class="step" data-x="-1200" data-y="2100" data-z="-3000" data-rotate="360">
 		
-		<div class="columns">
-			<div>
-				<h2>HTML - the backbone</h2>
-				<ul>
-					<li>Definition of the page and page attributes</li>
-					<li>The structure of the page</li>
-					<li>Page content and it's structure</li>
-				</ul>
-			</div>
-			<div>
-				<pre class="prettyprint"><code>&lt;html&gt;
-	&lt;-- Header --&gt;
-	&lt;head&gt;
-		&lt;-- Meta data of the web page --&gt;
-		&lt;meta charset=&quot;utf-8&quot;/&gt;
-		&lt;meta name=&quot;description&quot; content=&quot;My first page!&quot; /&gt;
-    	&lt;meta name=&quot;author&quot; content=&quot;Damian Sosnowski&quot; /&gt;
-	&lt;/head&gt;
-	&lt;-- Body: actual page content --&gt;
-	&lt;body&gt;
-		&lt;p&gt;Hello!&lt;/p&gt;
-		&lt;p&gt; Click &lt;a href=&quot;http://www.pudelek.pl&quot;&gt;here&lt;/a&gt; to get best news!&lt;/p&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-			</div>
-		</div>
-	</div>
-	
-	<div class="step" data-x="-1200" data-y="3100" data-z="-3000" data-rotate="360">
-		<div class="rows">
-			<div>
-				<h2>HTML - the content and semantics</h2>
-				<p>HTML allows us to define the structure of the content.</p> <p>We use tags to create things like paragraphs, links, tables, images.</p>
-				<p>Additionally it can be used to define semantic meaning of the page elementes.</p>
-			</div>
-			<div>
-				<pre class="prettyprint"><code>&lt;body&gt;
-	&lt;header&gt;
-		&lt;h1&gt;Some big title&lt;/h1&gt;
-		&lt;h4&gt;Sub small title&lt;/h4&gt;
-	&lt;/header&gt;
-	&lt;article&gt;
-		&lt;section&gt;Important content&lt;/section&gt;
-		&lt;aside&gt;Oh, some not really important comment&lt;/aside&gt;
-		&lt;section&gt;Another important content &lt;cite&gt;Keep you html semantic - Paulo Cohello&lt;/cite&gt;
-		Lorem ipsum dolo &lt;strong&gt;Important&lt;/strong&gt;
-		&lt;/section&gt;
-	&lt;/article&gt;
-	&lt;footer&gt;
-		Created by me.
-	&lt;/footer&gt;
-&lt;/body&gt;</code></pre>
-			</div>
-		</div>
-	</div>
-	
-	<div class="step" data-x="-1200" data-y="4100" data-z="-3000" data-rotate="360">
-		<div>
-			<h1>Some header</h1>
-			<section>
-				<p>Hello world</p>
-				<p>Lets put some <a href="http://www.google.com">link</a></p>
-			</section>
-		</div>
-	</div>
-	
-	<div class="step" data-x="-1200" data-y="4100" data-z="-4000" data-rotate="360">
-		<pre class="prettyprint noback">
-&lt;body&gt;
-	&lt;h1&gt;Some header&lt;/h1&gt;
-	&lt;section&gt;
-		&lt;p&gt;Hello world&lt;/p&gt;
-		&lt;p&gt;Lets put some &lt;a href=&quot;http://www.google.com&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-	&lt;/section&gt;
-&lt;/body&gt;
-		</pre>
-	</div>
-	
-	<div class="step" data-x="-1200" data-y="4100" data-z="-5000" data-rotate="360">
-		<p class="image"><img src="tree.png"/></p>
-	</div>
-	
-	<div id="css" class="step" data-x="0" data-y="1300" data-z="-3000" data-rotate="360">
-		<p style="text-align: center;"><img src="css.png"/></p>
-	</div>
-	
-	<div class="step" data-x="0" data-y="2300" data-z="-3000" data-rotate="360">
-		<div>
-			<h2>CSS - the look and feel</h2>
-			<ul>
-				<li>Definition of the page apperance</li>
-				<li>Defines how the page elements are displayed and aligned</li>
-				<li>It makes your page pretty ;)</li>
-			</ul>
-		</div>
-	</div>
-	<div class="step" data-x="0" data-y="3300" data-z="-3000" data-rotate="360">
-		<img src="no_styles.png" width="100%"/>
-	</div>
-	<div class="step" data-x="0" data-y="3300" data-z="-3000" data-rotate="360">
-		<img src="with_styles.png" width="100%"/>
-	</div>
-	<div class="step" data-x="0" data-y="4300" data-z="-3000" data-rotate="360">
-		<h2>Defining styles</h2>
-		<b>Inside DOM element</b>
-		<pre class="prettyprint">
-			&lt;p style=&quot;color:sienna;margin-left:20px;&quot;&gt;This is a paragraph.&lt;/p&gt;
-		</pre>
-		<b>Inline style sheet</b>
-		<pre class="prettyprint">
-			&lt;head&gt;
-&lt;style&gt;
-	hr {color: sienna;}
-	p {margin-left: 20px;}
-	body {background-image: url(&quot;images/background.gif&quot;);}
-&lt;/style&gt;
-&lt;/head&gt;
-		</pre>
-		<b>External Style Sheet</b>
-		<pre class="prettyprint">
-&lt;head&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot;&gt;
-&lt;/head&gt;
-		</pre>
-		mystyle.css
-		<pre class="prettyprint">
-hr {color: sienna;}
-p {margin-left: 20px;}
-body {background-image: url(&quot;images/background.gif&quot;);}		
-		</pre>
-	</div>
-	
-	<div class="step" data-x="0" data-y="5300" data-z="-3000" data-rotate="360">
-		<pre class="prettyprint noback">
-&lt;body&gt;
-	&lt;h1&gt;Some header&lt;/h1&gt;
-	&lt;p class="hello"&gt;Hello world&lt;/p&gt;
-	&lt;p&gt;Lets put some &lt;a href=&quot;http://www.google.com&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-&lt;/body&gt;
-		</pre>
-		<pre class="prettyprint">
-h1 {
-	font-size: 20px;
-	font-weight: bold;
-	text-align: left;
-	color: red;
-	text-decoration: underline
-}
-	
-.hello {
-	background: white;
-	border-radius: 10px;
-	text-align: right;
-}
-	
-p a {
-	display: inline-block;
-	background: rgb(200, 200, 200, .5);
-	border-radius: 5px;
-}</pre>
-	</div>
-	
-	<div class="step" data-x="0" data-y="5300" data-z="-3000" data-rotate="360">
-		<div class="css_example">
-			<h1>Some header</h1>
-			<p class="hello">Hello World</p>
-			<p>Lets put some <a href="http://www.google.com">link</a>!</p>
-		</div>
-	</div>
-	
-	<div id="js" class="step" data-x="1200" data-y="1300" data-z="-3000" data-rotate="360">
-		<p style="text-align: center;"><img src="js.png"/></p>
-	</div>
-	
-	<div class="step" data-x="1200" data-y="2300" data-z="-3000" data-rotate="360">
+	<div class="step" data-x="4000" data-y="6000">
+		<h2>Closure</h2>
 		
-		<div class="rows">
-			<div>
-				<h2>JavaScript - Behavior and Logic</h2>
-				<ul>
-					<li>HTML and CSS is static, JavaScript adds the behavior and actions to the page</li>
-					<li>Allows us to modify page content</li>
-					<li>Application logic</li>
-					<li>Communication and API usage</li>
-				</ul>
-			</div>
-			<div>
-	<pre class="prettyprint"><code> var getStep = function ( step ) {
-	if (typeof step === "number") {
-		step = step < 0 ? steps[ steps.length + step] : steps[ step ];
-	} else if (typeof step === "string") {
-		step = byId(step);
-	}
-	return (step && step.id && stepsData["impress-" + step.id]) ? step : null;
+		<pre class="prettyprint">
+var times = function (t) {
+	return function (number) {
+	    return t * number;
+	};
 };
-</code></pre>
-			</div>
-		</div>
+		</pre>
+		<pre class="prettyprint">
+var timesTwo = times(2);
+timesTwo(5); // 10
+timesTwo(4); //8
+
+var timesThree = times(3);
+timesThree(5); // 15
+timesThree(4); // 12
+		</pre>
 	</div>
-	
-	<div class="step" data-x="1200" data-y="3300" data-z="-3000" data-rotate="360">
-		<h2>Defining JavaScript code</h2>
-		<b>Inline code</b>
-		<pre class="prettyprint">
-&lt;head&gt;
-	&lt;script type="text/javascript"&gt;
-		alert('Guten tag!')
-	&lt;/script&gt;
-&lt;/head&gt;</pre>
-		<b>External script</b>
-		<pre class="prettyprint">
-&lt;script type=&quot;text/javascript&quot; src=&quot;myfile.js&quot;&gt;</pre>
-		myfile.js
-		<pre class="prettyprint">
-alert('Guten tag!');</pre>
-	</div>
-	
-	<div class="step" data-x="1200" data-y="3300" data-z="-3000" data-rotate="360">		
-		<div id="clicker"></div>
 		
-		<script type="text/javascript">
-			var el = document.getElementById('clicker'), colors = ['blue', 'red', 'green', 'yellow', 'black', '#7FFF00', 'pink', '#FF00FF', '#800080'], ind=0;
-			
-			el.addEventListener('click', function () {
-				el.style.top = Math.random() * 400 + 'px';
-				el.style.left = Math.random() * 400 + 'px';
-				if (ind >= colors.length) {
-					ind = 0;
-				}
-				el.style.background = colors[ind++];
-				
-			});
-		</script>
+	<div class="step" data-x="5000" data-y="6000">
+		<h1>Function context</h1>	
+	</div>
 		
+	<div class="step" data-x="5000" data-y="6200">
+		<h2>"this" value</h2>
+		<pre class="prettyprint">
+var obj {
+	method: function () {
+	    console.log(this);
+	}
+}
+obj.method(); // obj
+		</pre>
+	</div>
+	<div class="step" data-x="5000" data-y="6300">
+		<pre class="prettyprint">
+var func = function () {
+	console.log(this);
+};
+
+func(); // window (global object);
+		</pre>
+	</div>
+		
+	<div class="step" data-x="5000" data-y="6400">
+		<h2>this value is dynamic - depends on how the function is called</h2>
+		<pre class="prettyprint">
+obj.method(); // obj
+var func = obj.method;
+
+func(); // window
+		</pre>
 	</div>
 	
+	<div class="step" data-x="5000" data-y="6500">
+		<h2>every function has it's own context</h2>
+		<pre class="prettyprint">
+var obj = {
+	method: function () {
+	    console.log(this);
+		
+	    (function () {
+	        console.log(this);
+	    }());
+	}
+}
+obj.method(); // obj; window;
+		</pre>
+	</div>
+		
+	<div class="step" data-x="5000" data-y="6200">
+		<h2>Context can be changed</h2>
+		<pre class="prettyprint">
+var obj = {}, func = function () {
+	console.log(this);
+};
+
+func(); // window
+func.apply(obj); //obj
+func.call(obj); //obj
+
+func(); //window
+
+var func2 = func.bind(obj);
+func2(); // obj
+func2(); // obj
+		</pre>
+	</div>
+		
+	<div class="step" data-x="5000" data-y="6300">
+		<h2>Common problems</h2>
+		
+		<pre class="prettyprint">
+var form = {
+	addSubmitAction: function () {
+        // ...
+        formEl.addEventListener('submit', function () {
+             this.validateData(); // !
+        });
+	},
+	validateData: function () {
+        //fancy validation here
+	}
+}	
+		</pre>
+	</div>
+		
+	<div class="step" data-x="5000" data-y="6300">
+		<h2>Solution one</h2>
+		
+		<pre class="prettyprint">
+var form = {
+    addSubmitAction: function () {
+        // ...
+        formEl.addEventListener('submit', function () {
+            this.validateData();
+        }.bind(this));
+	},
+	validateData: function () {
+	    //fancy validation here
+	}
+}	
+		</pre>
+	</div>
+		
+	<div class="step" data-x="5000" data-y="6300">
+		<h2>Solution one</h2>
+		
+		<pre class="prettyprint">
+var form = {
+	addSubmitAction: function () {
+		// ...
+		formEl.addEventListener('submit', this.validateData.bind(this));
+	},
+	validateData: function () {
+		//fancy validation here
+	}
+}	
+		</pre>
+	</div>
+		
+	<div class="step" data-x="5000" data-y="6300">
+		<h2>Solution two</h2>
+		
+		<pre class="prettyprint">
+var form = {
+	addSubmitAction: function () {
+		var me = this;
+		// ...
+		formEl.addEventListener('submit', function () {
+            me.validateData();
+		});
+	},
+	validateData: function () {
+		//fancy validation here
+	}
+}	
+		</pre>
+	</div>
 	
+	<div class="step" data-x="0" data-y="7000">
+		<h1>OOP JavaScript</h1>	
+	</div>
+		
+	<div class="step" data-x="1000" data-y="7000">
+		<ul>
+			<li>JavaScript is object oriented</li>
+			<li>However its OOP is misunderstood</li>
+			<li>Truth to be told it's also confusing</li>
+		</ul>	
+	</div>
+		
+	<div class="step" data-x="2000" data-y="7000">
+		<h2>Objects in JavaScript are very simple</h2>
+		
+		<pre class="prettyprint">
+var obj = {};
+obj.key = "smth";
+
+obj.method = function () {
+	//do smth;
+};
+obj.method();
+
+var user = {
+	name: 'Damian',
+	surname: 'Sosnowski',
+	language: 'JS'
+};
+		</pre>
+	</div>
+		
+	<div class="step" data-x="3000" data-y="7000">
+		<h1>But the inheritance is confusing...</h1>	
+	</div>
+	
+	<div class="step" data-x="3000" data-y="7000">
+		<h1>Prototypes!</h1>	
+	</div>	
+		
+	<div class="step" data-x="3000" data-y="7200">
+		<h2>What is a prototype?</h2>
+		
+		<pre class="prettyprint">
+var obj = {
+	key1: 'value',
+	key2: 'value2'
+};
+
+for (var key in obj) {
+	console.log(key);
+}
+// "key1"
+// "key2"
+		</pre>
+	</div>
+		
+	<div class="step" data-x="3000" data-y="7400">
+		<pre class="prettyprint">
+			obj.toString(); // "[object Object]"
+		</pre>
+		
+		<p>How?</p>
+	</div>
+		
+	<div class="step" data-x="3000" data-y="7600">
+		<h2>Prototype</h2>
+		<p style="text-align: center"><img src="proto.png"/></p>
+	</div>
+		
+	<div class="step" data-x="3000" data-y="7800">
+		<h2>How can we create object with a prototype?</h2>
+		<pre class="prettyprint">
+var proto = {
+	sayHello: function () {
+		console.log('Hi ' + this.name + '!');
+	}
+};
+
+var obj = Object.create(proto);
+obj.name = 'Damian';
+
+var obj2 = Object.create(proto);
+obj.name = 'Zdzichu';
+
+obj.sayHello === obj2.sayHello; // true
+
+obj.sayHello(); // Hi Damian!
+obj2.sayHello(); // Hi Zdzichu!
+		</pre>
+	</div>
+		
+	<div class="step" data-x="3000" data-y="8000">
+		<h2>Inheritance === prototype chain</h2>
+		
+		<p style="text-align: center"><img src="chain.png"/></p>
+		
+	</div>
+		
+	<div class="step" data-x="3000" data-y="8200">
+		<h2>Inheritance - no clases</h2>
+		
+		<pre class="prettyprint">
+var dogProto = {
+	run: function () {
+	    console.log('I run!');
+	},
+	bark: function () {
+	    console.log('Hau! Hau!');
+	}
+};
+
+var createSmallDog = function () {
+	var smallDogProto = Object.create(dogProto);
+	smallDogProto.bark = function () {
+	     console.log('Pi pi pi');
+	}
+	
+	return Object.create(smallDogProto);
+}
+
+var smallDog = createSmallDog();
+smallDog.run(); // I run!
+smallDog.bark(); // Pi pi pi
+		</pre>
+	</div>
+		
+	<div class="step" data-x="3000" data-y="9000">
+		<h1>Let's practice</h1>	
+	</div>
 	
 
     <!--
