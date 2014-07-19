@@ -271,13 +271,12 @@ var dogProto = {
 	    console.log('Hau! Hau!');
 	}
 };
-
-var createSmallDog = function () {
-	var smallDogProto = Object.create(dogProto);
-	smallDogProto.bark = function () {
-	     console.log('Pi pi pi');
-	}
+var smallDogProto = Object.create(dogProto);
+smallDogProto.bark = function () {
+	 console.log('Pi pi pi');
+}
 	
+var createSmallDog = function () {
 	return Object.create(smallDogProto);
 }
 
