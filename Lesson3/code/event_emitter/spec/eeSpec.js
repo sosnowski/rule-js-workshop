@@ -142,5 +142,22 @@ describe("Event Emitter class", function() {
 			expect(list2).not.toHaveBeenCalled();
 			expect(list3).not.toHaveBeenCalled();
 		});
+		
+		it('Should always remove correct listener', function () {
+			var res4, list4 = jasmine.createSpy('listener4');
+			
+			res3();
+			
+			res4 = ee.on('test1', list4);
+			
+			res3(); //check if it's not removing the newly added listener
+			
+			ee.emit('test1');
+			
+			expect(list1).toHaveBeenCalled();
+			expect(list2).toHaveBeenCalled();
+			expect(list3).not.toHaveBeenCalled();
+			expect(list4).toHaveBeenCalled();
+		});
 	});
 });
