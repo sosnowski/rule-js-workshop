@@ -177,18 +177,16 @@
 		
 	<div class="step" data-x="2000" data-y="1000">
 		<h2>(Element || Node).navigate;</h2>
-		
+		<p>Element</p>
 		<pre class="prettyprint">
 element.children
 element.firstElementChild
 element.lastElementChild
 element.nextElementSibling
-element.offsetParent
 element.parentElement
 element.previousElementSibling
-element.ownerDocument
 		</pre>
-
+		<p>Node</p>
 		<pre class="prettyprint">
 node.childNodes
 node.firstChild
@@ -203,19 +201,31 @@ node.previousSibling
 		<h2>element.querying();</h2>	
 
 		<pre class="prettyprint">
+var el = document.getElementById('myDiv'),
+	el2 = el.querySelector('#myChildDiv');
+		</pre>
+
+		<p>Useful methods</p>
+		<pre class="prettyprint">
 element.getElementById()
 element.getElementsByTagName()
-element.getElementsByTagNameNS()
 element.getElementsByClassName()
 element.getElementsByName()
+
 element.querySelector()
 element.querySelectorAll()
 		</pre>
-
 	</div>
 	
 	<div class="step" data-x="3000" data-y="1000">
 		<h2>node.manipulation();</h2>	
+		<pre class="prettyprint">
+var text = document.createElement('p');
+text.textContent = 'JS is awsome';
+document.body.appendChild(text);
+		</pre>
+
+		<p>Useful methods</p>
 		<pre class="prettyprint">
 document.createElement(tagName)
 
@@ -224,93 +234,120 @@ parentNode.insertBefore(newNode, beforeNode)
 parentNode.removeChild(node)
 parentNode.replaceChild(newNode, oldNode)
 node.cloneNode(deep)
-
-element.insertAdjacentHTML(position, html)
-element.insertAdjacentElement(position, element)
-element.insertAdjacentText(position, text)
 		</pre>
+
 	</div>	
 		
 
 	<div class="step" data-x="3000" data-y="9000">
-		<h1>element.attributes;</h1>
+		<h2>element.attributes;</h2>
+		<p>Element content</p>
 		<pre class="prettyprint">
-element.innerHTML
-element.textContent
-element.contentEditable
-element.className
-element.classList (methods: add, contains, remove, toggle)
-element.style
-element.dataset
-element.attributes
-element.setAttribute()
-element.getAttribute()
-element.removeAttribute()
-element.hasAttribute()
+element.innerHTML = 'some <br> text'; // 'some text'
+element.textContent = 'some <br> text'; // 'some <br> text'
+		</pre>
+
+		<p>Element classes</p>
+		<pre class="prettyprint">
+var img = document.getElementById('myImage');
+if (img.classList.contains('avatar')) {
+	img.classList.add('movie');
+}
+console.log(img.className); // 'avatar movie'
 		</pre>
 	</div>
 
 	<div class="step" data-x="3000" data-y="9000">
-		<h1>Coding.start();</h1>
-		<p>Build a menu using semantic HTML tags</p>
+		<h2>element.attributes;</h2>
+		<p>Element "special" attributes</p>
 		<pre class="prettyprint">
-var nav = [
-	{href: 'page-1', name: 'Page 1'},
-	{href: 'page-2', name: 'Page 2'},
-	{href: 'page-3', name: 'Page 3'},
-	{href: 'page-4', name: 'Page 4'},
-	{href: 'page-5', name: 'Page 5'}
-];
+&lt;a href="/cool-url" id="fancyLink"&gt;Fancy link&lt;/a&gt;
 		</pre>
-	</div>
 
-
-
-	<div class="step" data-x="3000" data-y="1200">
-		<h2>Event;</h2>
-		
 		<pre class="prettyprint">
-node.addEventListener(type, listener, useCapture)
-node.removeEventListener(type, listener, useCapture)
+var link = document.getElementById('fancyLink');
+console.log(link.href); // 'http://localhost/cool-url'
+console.log(link.getAttribute('href')); // '/cool-url'
+		</pre>
 
-node.dispatchEvent(event)
+		<p>Element data attributes</p>
+		<pre class="prettyprint">
+&lt;p data-secret-message="this comes from lipsum.com" id="fancyItem"&gt;Lorem ipsum...&lt;/a&gt;
+		</pre>
+
+		<pre class="prettyprint">
+var item = document.getElementById('fancyItem');
+console.log(item.dataset.secretMessage); // 'this comes from lipsum.com'
 		</pre>
 	</div>
 
 	<div class="step" data-x="3000" data-y="1200">
 		<h2>Event;</h2>
-		
+		<p>Capturing and bubbling phase</p>
+		<p style="text-align: center;">
+			<img src="events.png"/>
+		</p>
+	</div>
+
+	<div class="step" data-x="3000" data-y="1200">
+		<h2>Event;</h2>
+
 		<pre class="prettyprint">
-function listener(event) {
-	event.type
-	event.target
-	event.currentTarget
-	event.dataTransfer
-	event.preventDefault()
-	event.stopPropagarion()
-	event.stopImmediatePropagation()
-};
+var element = document.getElementById('clickOnce'),
+	clickOnce = function(event) {
+		// magic happens here
+		element.removeEventListener(event.type, clickOnce, false);
+	};
+
+element.addEventListener('click', clickOnce, false);
+		</pre>
+
+	</div>
+
+	<div class="step" data-x="3000" data-y="1200">
+		<h2>Event;</h2>
+		<p>Preventing default behavior</p>
+		<pre class="prettyprint">
+var anchor = document.getElementById('myAnchor');
+
+anchor.addEventListener('click', function(event){
+	// magic happens here
+	event.preventDefault();	
+}, false);
+		</pre>
+	</div>
+
+	<div class="step" data-x="3000" data-y="1200">
+		<h2>Event;</h2>
+		<p>Preventing other events</p>
+		<pre class="prettyprint">
+var parent = document.getElementById('myParent'),
+	child = document.getElementById('myChild');
+
+parent.addEventListener('click', function(event){
+	// magic happens here
+}, false);
+
+child.addEventListener('click', function(event){
+	// magic happens here
+	event.stopPropagation();
+}, false);
 		</pre>
 	</div>
 
 	<div class="step" data-x="3000" data-y="1200">
 		<h2>Event.create();</h2>
-
+		<p>Triggering events</p>
 		<pre class="prettyprint">
 var e = new Event('customClick');
 e.initEvent('customClick', true, true);
-node.dispatchEvent(e);
+element.dispatchEvent(e);
 		</pre>
 	</div>
 
 				
 	<div class="step" data-x="3000" data-y="9000">
-		<h1>Coding.continue();</h1>
-		<ul>
-			<li>Highlight last cliecked menu item</li>
-			<li>Create page header and update it every time menu item is clicked</li>
-			<li>Create page content and update it with selected menu item index</li>
-		</ul>
+		<h1>Coding.start();</h1>
 	</div>
 	
 
