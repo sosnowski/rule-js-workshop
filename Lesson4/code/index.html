@@ -1,0 +1,38 @@
+<!DOCUMENT html>
+<html>
+<head>
+	<title>Lesson 4</title>
+	<meta charset="utf-8">
+	<style>
+		label { display: inline-block; width: 200px; }
+		input { width: 300px; }
+		textarea { display: block; width: 500px; height: 200px; }
+	</style>
+</head>
+<body>
+	<form action="/submit" id="myForm" method="POST">
+		<div>
+			<label for="name">Name:</label>
+			<input id="name" type="text" name="name">
+		</div>
+		<div>
+			<label for="email">E-mail:</label>
+			<input id="email" type="email" name="email">
+		</div>
+		<div>
+			<label for="description">Description:</label>
+			<textarea name="description" id="description"></textarea>
+		</div>
+		<div>
+			<label for="reg">Reg:</label>
+			<input id="reg" type="checkbox" name="reg" required>
+		</div>
+		<button type="submit">Save</button>
+	
+		<ul id="myList"></ul>
+	</form>
+
+
+	<script src="code.js"></script>
+</body>
+</html>
