@@ -58,9 +58,6 @@
 						<p>
 							<img src="./assets/10-21-http-request.png" alt="" />
 						</p>
-						<p>
-							<a href="http://httpstatus.es/" target="_blank">List of status codes</a>
-						</p>
 					</section>
 
 					<section>
@@ -69,27 +66,54 @@
 &lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 
-	&lt;head&gt;
-		&lt;meta charset="utf-8"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
 
-		&lt;title&gt;Client - Server communication&lt;/title&gt;
+    &lt;title&gt;Client - Server communication&lt;/title&gt;
 
-		&lt;meta name="description" content="Presentation about how communication between server and client works, and various strategies such as Ajax."&gt;
-		&lt;meta name="author" content="Dawid Jankowiak"&gt;
+    &lt;meta name="description" content="Presentation about how communication between server and client works, and various strategies such as Ajax."&gt;
+    &lt;meta name="author" content="Dawid Jankowiak"&gt;
 
-		&lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
-		&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /&gt;
+    &lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
+    &lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /&gt;
 
-		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
 
-		&lt;link rel="stylesheet" href="css/reveal.min.css"&gt;
-		&lt;link rel="stylesheet" href="css/theme/sky.css" id="theme"&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h1&gt;JavaScript Workshop&lt;/h1&gt;
-	&lt;/body&gt;
+    &lt;link rel="stylesheet" href="css/reveal.min.css"&gt;
+    &lt;link rel="stylesheet" href="css/theme/sky.css" id="theme"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;JavaScript Workshop&lt;/h1&gt;
+  &lt;/body&gt;
 &lt;/html&gt;
 						</code></pre>
+					</section>
+					<section>
+						<h2>Response status codes</h2>
+						<ul>
+							<li><code>102</code></li>
+							<li><code>200</code></li>
+							<li><code>204</code></li>
+							<li><code>401</code></li>
+							<li><code>404</code></li>
+							<li><code>500</code></li>
+						</ul>
+						<p>
+							<a href="http://httpstatus.es/" target="_blank">List of status codes</a>
+						</p>
+					</section>
+					<section>
+						<h2>HTTP Verbs/Methods</h2>
+						<ul>
+							<li><code>GET</code></li>
+							<li><code>PUT</code></li>
+							<li><code>POST</code></li>
+							<li><code>DELETE</code></li>
+							<li><code>HEAD</code></li>
+						</ul>
+						<p>
+							<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank">HTTP/1.1 Chapter 9.</a>
+						</p>
 					</section>
 				</section>
 
@@ -150,20 +174,84 @@
 
 				<section>
 					<section>
+						<h2>Asynchronous code</h2>
+						<div>
+							<img src="assets/ASYNC.gif" alt="" />
+						</div>
+					</section>
+					<section>
+						<h2>Callbacks</h2>
+						<pre>
+							<code data-trim contenteditable>
+var fs = require('fs');
+fs.readFile('text.txt', function callback (content) {
+  console.log(content);
+});
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Promises</h2>
+						<h4>Deferred</h4>
+						<pre>
+							<code data-trim contenteditable>
+getUserPromise()
+  .then(function (user) {
+    return getAddressPromise(user.id);
+  })
+  .then(function (address) {
+    renderAddress(address);
+  }, handleError)
+  .done();
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Events</h2>
+						<pre>
+							<code data-trim contenteditable>
+var DocumentRow = Backbone.View.extend({
+	initialize: function () {
+		this.listenTo(this.model, 'change', this.render);
+	},
+	render: function () {
+		// render some stuff
+	}
+});
+
+// ...
+
+this.model.trigger('change', {title: 'New title'});
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Event Loop</h2>
+						<div>
+							<img src="assets/event_loop.png" alt="" />
+						</div>
+						<p>
+							<a href="http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/">The JavaScript event loop explained</a>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
 						<h2>XMLHttpRequest</h2>
 						<pre>
 							<code data-trim contenteditable>
 httpRequest = new XMLHttpRequest();
 httpRequest.onreadystatechange = function handleResult () {
-	if (httpRequest.readyState === 4) {
-		if (httpRequest.status === 200) {
-			// handle success
-			// and do something with
-			httpRequest.responseText;
-		} else {
-			// catch errors (or other messages)
-		}
-	}
+  if (httpRequest.readyState === 4) {
+    if (httpRequest.status === 200) {
+      // handle success
+      // and do something with
+      httpRequest.responseText;
+    } else {
+      // catch errors (or other messages)
+    }
+  }
 }
 httpRequest.open('GET', 'some-url.com');
 httpRequest.send();
@@ -214,7 +302,7 @@ httpRequest.send();
 							<li>No browser history</li>
 							<li>No search engine interaction</li>
 							<li>Server load can increase</li>
-							<li>Security</li>
+							<li>Security (<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank">Same-origin policy</a>)</li>
 							<li>Not so good in file uploading</li>
 						</ul>
 					</section>
@@ -235,7 +323,7 @@ httpRequest.send();
 						<pre>
 							<code data-trim contenteditable>
 function handle_data (data) {
-	// data respresents a response JSON object
+  // data respresents a response JSON object
 }
 							</code>
 						</pre>
@@ -275,6 +363,18 @@ Content-Type: text/html; charset=utf-8
 							<a href="http://www.html5rocks.com/en/tutorials/cors/" target="_blank">More on HTML 5 Rocks</a>
 						</p>
 					</section>
+					<section>
+						<h2>FormData</h2>
+						<p>
+							<code>new FormData([form])</code> constractor object takes optionaly HTMLFormElement.
+						</p>
+						<p>
+							<code>append(name, value [, filename])</code> - method adds key value pair to formData object. Value can be a string, file or blob (if one of last two then method can optionaly take third parameter, a file name).
+						</p>
+						<p>
+							More info at <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">MDN page</a>
+						</p>
+					</section>
 				</section>
 
 				<section>
@@ -294,17 +394,17 @@ Content-Type: text/html; charset=utf-8
 							<code data-trim contenteditable>
 var socket = new WebSocket('ws://some-page.com');
 socket.onerror = function (error) {
-	// handle error
+  // handle error
 };
 socket.onopen = function (event) {
-	// handle connection open
+  // handle connection open
 };
 socket.onmessage = function (event) {
-	var data = event.data;
-	// handle data message
+  var data = event.data;
+  // handle data message
 };
 socket.onclose = function (event) {
-	// handle close
+  // handle close
 };
 // ...
 socket.send(message);
