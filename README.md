@@ -13,29 +13,36 @@ rule-js-workshop
   * DOM performance
   * Events, events phases and events delegation
 5. (04.08.2014) **CSS part 1** - Mateusz Gorynia
-  * Few words about CSS (applying, syntax, IDs and classes) 
-  * Selectors, properties and values 
+  * Few words about CSS (applying, syntax, IDs and classes)
+  * Selectors, properties and values
   * Grouping and nesting
   * Cascading and inheritance
-  * Colors 
-  * Borders and shadows 
-  * Text effects 
-  * Pseudo classes and pseudo elements 
-  * Shorthand properties 
-  * Display 
-  * Page layout (positioning and floating) 
+  * Colors
+  * Borders and shadows
+  * Text effects
+  * Pseudo classes and pseudo elements
+  * Shorthand properties
+  * Display
+  * Page layout (positioning and floating)
 6. (06.08.2014) **CSS part 2** - Mateusz Gorynia
   * Specificity
   * At-rules
   * Advanced selectors (all, child, adjacent, attribute selectors)
-  * Box Model 
-  * Flexible box layout 
-  * Transitions 
-  * Transformations 
-  * Gradients 
-  * Animations 
-  * Media Queries 
+  * Box Model
+  * Flexible box layout
+  * Transitions
+  * Transformations
+  * Gradients
+  * Animations
+  * Media Queries
 7. (13.08.2014) **Client - Server communication** - Dawid Jankowiak
+  * HTTP Communication
+  * Ajax
+  * Techniques build on Ajax
+  * XMLHttpRequest
+  * JSONP and CORS
+  * WebSockets
+  * WebRTC
 8. (20.08.2014) **AngularJS (Induction to the framework)** - Damian Sosnowski
 9. (27.08.2014) **Angular JS (Advanced framework features)** - Krzysztof Kotlarski
 10. (03.09.2014) **Modern JavaScript development tools** - Piotr Machowski
