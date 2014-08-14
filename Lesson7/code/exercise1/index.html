@@ -15,7 +15,33 @@
         </div>
         <script charset="utf-8">
             (function (doc) {
+                var as = doc.getElementsByTagName('a');
+                var container = doc.getElementById('container');
+                for(var i = 0; i < as.length; i++) {
+                    (function (a) {
+                        a.addEventListener('click', function (ev) {
+                            ev.preventDefault();
+                            var a = ev.target;
+                            var url = a.href;
 
+                            var httpRequest = new XMLHttpRequest();
+                            httpRequest.onreadystatechange = function handleResult () {
+                              if (httpRequest.readyState === 4) {
+                                if (httpRequest.status === 200) {
+                                  // handle success
+                                  // and do something with
+                                  container.innerHTML = httpRequest.responseText;
+                                  console.log(httpRequest.responseText);
+                                } else {
+                                  // catch errors (or other messages)
+                                }
+                              }
+                            }
+                            httpRequest.open('GET', url);
+                            httpRequest.send();
+                        })
+                    })(as[i]);
+                }
             })(document);
         </script>
     </body>
