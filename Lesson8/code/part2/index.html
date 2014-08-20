@@ -5,14 +5,20 @@
 	<title>Second Angular app</title>
 	<link rel="stylesheet" href="css/app.css">
 </head>
+
 <body ng-controller="AppCtrl">
 	<header>Loaded elements {{count}}</header>
 	<div class="container">
 		<div class="left" ng-controller="LeftPanelCtrl">
-			<p><input type="text" name="search" placeholder="Filter list"/></p>
+			<p><input type="text" name="search" placeholder="Filter list" ng-model="search" /></p>
+
+			<ul>
+				<li ng-repeat="record in elements | filter: search">{{record.name}}</li>
+			</ul>
 		</div>
 		<div class="right" ng-controller="RightPanelCtrl">
-
+		<p>Name: {{record.name}}</p>
+		<p>Id: {{record.id}}</p>
 		</div>
 	</div>
 
