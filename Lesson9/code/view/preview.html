@@ -1,0 +1,11 @@
+		<div class="left" ng-controller="LeftPanelCtrl">
+			<p><input type="text" name="search" placeholder="Filter list" ng-model="search" /></p>
+
+			<ul>
+				<li ng-repeat="record in elements | filter: search" ng-click="show(record)">{{record.name}}</li>
+			</ul>
+		</div>
+		<div class="right" ng-controller="RightPanelCtrl">
+		<p>Name: {{record.name}}</p>
+		<p>Id: {{record.id}}</p>
+		</div>

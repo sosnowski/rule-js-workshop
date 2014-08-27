@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<title>Second Angular app</title>
+	<link rel="stylesheet" href="css/app.css">
+</head>
+
+<body ng-controller="AppCtrl">
+	<nav>
+		<a href="#/new">New</a>
+		<a href="#/preview">Preview</a>
+	</nav>
+	<header>Loaded elements {{count}}</header>
+	<div ng-view class="container"></div>
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-route.js"></script>
+	<script type="text/javascript" src="js/AppCtrl.js"></script>
+	<script type="text/javascript" src="js/NewCtrl.js"></script>
+	<script type="text/javascript" src="js/PreviewCtrl.js"></script>
+	<script type="text/javascript" src="js/LeftPanelCtrl.js"></script>
+	<script type="text/javascript" src="js/RightPanelCtrl.js"></script>
+	<script type="text/javascript" src="js/StorageService.js"></script>
+</body>
+</html>
