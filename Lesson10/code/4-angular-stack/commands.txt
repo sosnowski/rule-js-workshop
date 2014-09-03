@@ -1,0 +1,196 @@
+JS-STACK:
+
+Before we start:
+http://nodejs.org/
+npm update -g npm
+
+--------------------------------------------------------
+KARMA-JASMIN-BOWER
+--------------------------------------------------------
+
+1) Karma
+npm install -g karma-cli
+npm install karma-jasmine --save-dev
+
+karma init karma.conf.js
+
+
+2) Bower
+npm install -g bower
+
+bower install
+
+
+--------------------------------
+NPM INIT
+-----------------------------------
+
+npm install karma --save-dev
+npm install karma-jasmine --save-dev
+npm install karma-chrome-launcher --save-dev
+
+
+
+
+--------------------------------------------------------
+GRUNT-JSHINT-BUILD-KARMA-JASMINE-PHANTOMJS
+--------------------------------------------------------
+1) Grunt
+npm install grunt --save-dev
+npm install grunt-karma --save-dev
+
+npm install -g phantomjs
+npm install karma-phantomjs-launcher --save-dev
+
+"grunt": "~0.4.5",
+"grunt-contrib-jshint": "~0.10.0",
+"grunt-contrib-uglify": "~0.5.0"
+
+
+
+
+// CUT HERE
+module.exports = function(grunt) {
+
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    //tasks configuration
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+        src: ['src/app/*.js'],
+        dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS'],
+      }
+    },
+    jshint: {
+      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      options: {
+        // options here to override JSHint defaults
+        globals: {
+            //http://www.jshint.com/docs/options/
+        }
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint', 'karma']
+    }
+  });
+
+
+  //taks loading
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+
+  //tasks registration
+  grunt.registerTask('test', ['jshint', 'karma']);
+  grunt.registerTask('default', ['jshint', 'karma', 'concat', 'uglify']);
+
+};
+
+
+
+
+
+
+// SMALL
+module.exports = function(grunt) {
+
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS'],
+      }
+    },
+    jshint: {
+      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.spec.js'],
+      options: {
+        // options here to override JSHint defaults
+        globals: {
+            //http://www.jshint.com/docs/options/
+        }
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint', 'karma']
+    }
+  });
+
+
+  //taks loading
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  //tasks registration
+  grunt.registerTask('test', ['jshint', 'karma']);
+
+};
+
+
+
+
+--------------------------------------------------------
+NGBP
+--------------------------------------------------------
+
+
+
+
+
+GIT:
+git clone path_to_repo
+
+git status                          (show repo status)
+git log -5                          (show commit history)
+
+git checkout -b branch_name         (creates local branch)
+git branch -d branch_name           (deletes local branch)
+
+git branch -a                       (show all branches)
+git branch -l                       (show local branches)
+
+git pull -r origin development      (rebase changes from development branch)
+
+git add -A :/                        (stage all changed files)
+
+git commit -m "commit message"      (commit you changes)
+
+git push origin development         (push your commits)
+
+git checkout -- .                   (drop any unstaged changes)
+git checkout -- {filename}          (drop changes in one file)
+
+
+git stash                           (saves unstaged changes)
+git stash apply                     (apply stashed changes but keep stash)
+git stash pop                       (apply stashed changes and remove the stash)
+git stash clean                     (delete all stashed changes)
