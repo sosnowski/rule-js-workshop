@@ -47,4 +47,4 @@ rule-js-workshop
 9. (27.08.2014) **Angular JS (Advanced framework features)** - Krzysztof Kotlarski
 10. (03.09.2014) **Modern JavaScript development tools** - Piotr Machowski
 11. (10.09.2014) **Testing JavaScript with Jasmine** - Łukasz Mielczarek
-11. (17.09.2014) **TDD (Test driven development of Angular JS application)** - Damian Sosnowski
+12. (17.09.2014) **TDD (Test driven development of Angular JS application)** - Damian Sosnowski
