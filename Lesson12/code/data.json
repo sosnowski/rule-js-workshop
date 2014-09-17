@@ -1,0 +1,33 @@
+[
+	{
+		"title": "Junk Mail",
+		"author": "CaH",
+		"file": "junk_mail.mp4",
+		"active": true
+	},
+	{
+		"title": "Screaming goats",
+		"author": "Various",
+		"file": "goats.mp4",
+		"active": true
+	},
+	{
+		"title": "Scrillex and Goats",
+		"author": "Scrilles",
+		"file": "skrillex.mp4",
+		"active": true
+	},
+	{
+		"title": "Talking cat",
+		"author": "kitty",
+		"file": "talking_cat.mp4",
+		"active": true
+	},
+	{
+		"title": "Sleeping cat",
+		"author": "kitty",
+		"file": "sleeping_cat.mp4",
+		"active": false
+	}
+
+]

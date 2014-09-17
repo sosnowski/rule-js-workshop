@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="workshop">
+<head>
+	<meta charset="UTF-8">
+	<title>Second Angular app</title>
+	<link rel="stylesheet" href="css/app.css">
+</head>
+
+<body ng-controller="AppCtrl">
+	<header>
+		Fancy video player
+	</header>
+	<div class="container">
+		<div class="left" ng-controller="ListCtrl">
+			<header>
+				Your videos
+			</header>
+
+			<input type="text" name="search" placeholder="Filter list"/>
+
+			<ul>
+				<li>List element</li>
+				<li>List element</li>
+				<li>List element</li>
+				<li>List element</li>
+				<li>List element</li>
+				<li>List element</li>
+				<li>List element</li>
+			</ul>
+		</div>
+		<div class="right" ng-controller="VideoCtrl">
+
+			<section>
+				<header>You are viewing video: </header>
+
+				<section class="player">
+					<video preload="metadata" src="video/junk_mail.mp4"></video>
+					<section class="controls">
+						<button>pause</button>
+						<button>play</button>
+						<button>volume up</button>
+						<button>volume down</button>
+					</section>
+				</section>
+
+			</section>
+
+		</div>
+	</div>
+
+	<div class="message-box" ng-show="messageContent">
+		<p>{{messageContent}}</p>
+		<p><button ng-click="messageContent = ''">Close</button>
+	</div>
+	<script type="text/javascript" src="angular/angular.js"></script>
+	<script type="text/javascript" src="js/build.js"></script>
+
+</body>
+</html>
