@@ -1,7 +1,9 @@
-angular.module('workshop').directive(function () {
+angular.module('workshop').directive('videoPlayer', function () {
 	return {
 		restrict: 'E',
-		scope: {},
+		scope: {
+			record: '='
+		},
 		controller: 'VideoPlayerCtrl',
 		templateUrl: 'player.html'
 	};

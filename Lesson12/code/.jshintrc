@@ -24,7 +24,8 @@
         "expect"  : true,
         "angular"    : true,
         "inject" : true,
-        "module" : true
+        "module" : true,
+        "jasmine": true
 	  }
 }
 

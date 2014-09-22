@@ -2,7 +2,7 @@
 <html lang="en" ng-app="workshop">
 <head>
 	<meta charset="UTF-8">
-	<title>Second Angular app</title>
+	<title>Final Angular app</title>
 	<link rel="stylesheet" href="css/app.css">
 </head>
 
@@ -16,33 +16,17 @@
 				Your videos
 			</header>
 
-			<input type="text" name="search" placeholder="Filter list"/>
+			<input type="text" name="search" placeholder="Filter list" ng-model="search"/>
 
 			<ul>
-				<li>List element</li>
-				<li>List element</li>
-				<li>List element</li>
-				<li>List element</li>
-				<li>List element</li>
-				<li>List element</li>
-				<li>List element</li>
+				<li ng-repeat="element in elements" ng-click="onClick(element)">{{element.title}}</li>
 			</ul>
 		</div>
 		<div class="right" ng-controller="VideoCtrl">
 
 			<section>
 				<header>You are viewing video: </header>
-
-				<section class="player">
-					<video preload="metadata" src="video/junk_mail.mp4"></video>
-					<section class="controls">
-						<button>pause</button>
-						<button>play</button>
-						<button>volume up</button>
-						<button>volume down</button>
-					</section>
-				</section>
-
+				<video-player record="record"></video-player>
 			</section>
 
 		</div>

@@ -1,0 +1,9 @@
+<section class="player" ng-show="record">
+	<video preload="metadata" src="{{record.file}}"></video>
+	<section class="controls">
+		<button ng-click="pause()">pause</button>
+		<button ng-click="play()">play</button>
+		<button ng-click="volumeUp()">volume up</button>
+		<button ng-click="volumeDown()">volume down</button>
+	</section>
+</section>
